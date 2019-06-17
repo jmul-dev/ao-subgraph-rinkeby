@@ -2,7 +2,7 @@ specVersion: 0.0.1
 description: AO protocol for retrieving content data and DAO information on rinkeby testnet.
 repository: https://github.com/jmul-dev/ao-subgraph-rinkeby
 schema:
-    file: ./schema.graphql
+    file: schema.graphql
 dataSources:
     - kind: ethereum/contract
       name: NameFactory
@@ -18,8 +18,8 @@ dataSources:
               - Name
           abis:
               - name: NameFactory
-                file: ./abis/NameFactory.json
+                file: NameFactory/abis/NameFactory.json
           eventHandlers:
               - event: CreateName(indexed address,address,uint256,string)
                 handler: handleCreateName
-          file: ./src/mappings/name-factory.ts
+          file: NameFactory/NameFactory.wasm
