@@ -1,0 +1,14 @@
+type CreateName @entity {
+  id: ID!
+  ethAddress: Bytes! # address
+  nameId: Bytes! # address
+  index: BigInt! # uint256
+  name: String! # string
+}
+
+type RewardContributor @entity {
+  id: ID!
+  nameId: Bytes! # address
+  pathosAmount: BigInt! # uint256
+  ethosAmount: BigInt! # uint256
+}
