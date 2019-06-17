@@ -5,3 +5,13 @@ type Name @entity {
 	index: BigInt! # uint256
 	name: String! # string
 }
+
+type TAO @entity {
+	id: ID!
+	advocateId: Bytes! # address
+	taoId: Bytes! # address
+	index: BigInt! # uint256
+	name: String! # string
+	parent: Bytes! # address
+	parentTypeId: Int! # uint8
+}

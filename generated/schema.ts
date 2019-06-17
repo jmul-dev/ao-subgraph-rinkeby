@@ -67,3 +67,87 @@ export class Name extends Entity {
 		this.set("name", Value.fromString(value));
 	}
 }
+
+export class TAO extends Entity {
+	constructor(id: string) {
+		super();
+		this.set("id", Value.fromString(id));
+	}
+
+	save(): void {
+		let id = this.get("id");
+		assert(id !== null, "Cannot save TAO entity without an ID");
+		assert(
+			id.kind == ValueKind.STRING,
+			"Cannot save TAO entity with non-string ID. " + 'Considering using .toHex() to convert the "id" to a string.'
+		);
+		store.set("TAO", id.toString(), this);
+	}
+
+	static load(id: string): TAO | null {
+		return store.get("TAO", id) as TAO | null;
+	}
+
+	get id(): string {
+		let value = this.get("id");
+		return value.toString();
+	}
+
+	set id(value: string) {
+		this.set("id", Value.fromString(value));
+	}
+
+	get advocateId(): Bytes {
+		let value = this.get("advocateId");
+		return value.toBytes();
+	}
+
+	set advocateId(value: Bytes) {
+		this.set("advocateId", Value.fromBytes(value));
+	}
+
+	get taoId(): Bytes {
+		let value = this.get("taoId");
+		return value.toBytes();
+	}
+
+	set taoId(value: Bytes) {
+		this.set("taoId", Value.fromBytes(value));
+	}
+
+	get index(): BigInt {
+		let value = this.get("index");
+		return value.toBigInt();
+	}
+
+	set index(value: BigInt) {
+		this.set("index", Value.fromBigInt(value));
+	}
+
+	get name(): string {
+		let value = this.get("name");
+		return value.toString();
+	}
+
+	set name(value: string) {
+		this.set("name", Value.fromString(value));
+	}
+
+	get parent(): Bytes {
+		let value = this.get("parent");
+		return value.toBytes();
+	}
+
+	set parent(value: Bytes) {
+		this.set("parent", Value.fromBytes(value));
+	}
+
+	get parentTypeId(): i32 {
+		let value = this.get("parentTypeId");
+		return value.toI32();
+	}
+
+	set parentTypeId(value: i32) {
+		this.set("parentTypeId", Value.fromI32(value));
+	}
+}
