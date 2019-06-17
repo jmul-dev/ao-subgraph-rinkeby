@@ -1,0 +1,7 @@
+# .prettierrc
+printWidth: 140
+useTabs: true
+tabWidth: 4
+trailingComma: none
+arrowParens: always
+bracketSpacing: true
